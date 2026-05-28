@@ -1,0 +1,64 @@
+/* =========================================================
+   bireysel Theme — Design Tokens
+   Kaplan tasarım sisteminden devralındı (Inter + Manrope, cyan).
+   + Ticaret (WooCommerce/LMS) için eklenen token'lar.
+   ========================================================= */
+
+:root {
+  /* ---------- Colors: Brand (kaplan ile birebir) ---------- */
+  --c-primary:      #5AC8FB;   /* Brand cyan */
+  --c-primary-600:  #2BB4F2;   /* Hover */
+  --c-primary-700:  #129BD8;   /* Pressed */
+  --c-primary-50:   #EAF7FE;   /* Soft surface (pill, chip bg) */
+
+  /* ---------- Colors: Text ---------- */
+  --c-ink:          #0F1B2D;
+  --c-ink-soft:     #2A3A52;
+  --c-muted:        #6B7A90;
+
+  /* ---------- Colors: Surface ---------- */
+  --c-line:         #E6ECF3;
+  --c-bg:           #FFFFFF;
+  --c-bg-soft:      #F6F9FC;
+  --c-bg-dark:      #0F1B2D;
+
+  /* ---------- Colors: Commerce (yeni) ---------- */
+  --c-price:        #0F1B2D;   /* Fiyat metni */
+  --c-sale:         #E0414B;   /* İndirim / eski fiyat çizgisi */
+  --c-sale-50:      #FDECEE;   /* İndirim rozeti zemin */
+  --c-success:      #18A957;   /* Stokta / başarı */
+  --c-success-50:   #E7F7EE;
+  --c-star:         #FFB020;   /* Puan yıldızı */
+  --c-new:          #129BD8;   /* "Yeni" rozeti */
+
+  /* ---------- Radius ---------- */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  28px;
+  --r-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-sm: 0 1px 2px rgba(15,27,45,.06), 0 1px 3px rgba(15,27,45,.04);
+  --shadow-md: 0 8px 24px rgba(15,27,45,.08);
+  --shadow-lg: 0 20px 50px rgba(15,27,45,.14);
+
+  /* ---------- Transition ---------- */
+  --t-fast: .18s ease;
+  --t-base: .28s cubic-bezier(.2,.7,.2,1);
+
+  /* ---------- Typography ---------- */
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Manrope', 'Inter', sans-serif;
+
+  --fs-h1: clamp(2rem, 4.4vw, 3.6rem);
+  --fs-h2: clamp(1.6rem, 2.6vw, 2.4rem);
+  --fs-h3: 1.25rem;
+  --fs-h4: 1.05rem;
+  --lh-body: 1.6;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1200px;
+  --container-pad: 4%;
+  --header-h: 76px;
+}

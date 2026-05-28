@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": { "contentSize": "1200px", "wideSize": "1200px" },
+    "color": {
+      "custom": true,
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "primary",     "color": "#5AC8FB", "name": "Primary Cyan" },
+        { "slug": "primary-600", "color": "#2BB4F2", "name": "Primary 600" },
+        { "slug": "primary-700", "color": "#129BD8", "name": "Primary 700" },
+        { "slug": "primary-50",  "color": "#EAF7FE", "name": "Primary Soft" },
+        { "slug": "ink",         "color": "#0F1B2D", "name": "Ink" },
+        { "slug": "ink-soft",    "color": "#2A3A52", "name": "Ink Soft" },
+        { "slug": "muted",       "color": "#6B7A90", "name": "Muted" },
+        { "slug": "line",        "color": "#E6ECF3", "name": "Line" },
+        { "slug": "bg",          "color": "#FFFFFF", "name": "Background" },
+        { "slug": "bg-soft",     "color": "#F6F9FC", "name": "Background Soft" },
+        { "slug": "bg-dark",     "color": "#0F1B2D", "name": "Background Dark" },
+        { "slug": "sale",        "color": "#E0414B", "name": "Sale" },
+        { "slug": "success",     "color": "#18A957", "name": "Success" }
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "customFontSize": true,
+      "fontFamilies": [
+        { "slug": "body", "name": "Inter", "fontFamily": "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" },
+        { "slug": "heading", "name": "Manrope", "fontFamily": "'Manrope', 'Inter', sans-serif" }
+      ],
+      "fontSizes": [
+        { "slug": "sm",  "size": "0.875rem", "name": "Küçük" },
+        { "slug": "base","size": "1rem",     "name": "Normal" },
+        { "slug": "lg",  "size": "1.25rem",  "name": "Büyük" },
+        { "slug": "xl",  "size": "1.6rem",   "name": "XL" },
+        { "slug": "2xl", "size": "2.4rem",   "name": "2XL" },
+        { "slug": "3xl", "size": "3.6rem",   "name": "3XL" }
+      ]
+    },
+    "spacing": { "units": ["px","em","rem","%","vw"] }
+  },
+  "styles": {
+    "color": { "background": "#FFFFFF", "text": "#0F1B2D" },
+    "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "lineHeight": "1.6" },
+    "elements": {
+      "heading": { "typography": { "fontFamily": "var(--wp--preset--font-family--heading)", "fontWeight": "700" } },
+      "h1": { "typography": { "fontSize": "clamp(2rem, 4.4vw, 3.6rem)", "fontWeight": "800" } },
+      "h2": { "typography": { "fontSize": "clamp(1.6rem, 2.6vw, 2.4rem)" } },
+      "link": { "color": { "text": "#129BD8" } }
+    }
+  }
+}

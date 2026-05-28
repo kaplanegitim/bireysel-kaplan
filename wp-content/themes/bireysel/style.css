@@ -1,0 +1,15 @@
+/*
+Theme Name:        bireysel
+Theme URI:         https://bireysel.kaplanegitim.com/
+Author:            Kaplan Eğitim
+Author URI:        https://kaplanegitim.com/
+Description:       Kaplan Eğitim "bireysel" mağaza & LMS teması. Kaplan tasarım dili (Inter + Manrope, cyan) + WooCommerce ve nd-learning entegrasyonu.
+Version:           1.0.0
+Requires at least: 6.0
+Requires PHP:      7.4
+License:           Proprietary
+Text Domain:       bireysel
+Tags:              custom, e-commerce, education, woocommerce, modern
+*/
+
+/* Gerçek stiller assets/css/tokens.css + assets/css/components.css içinde (ayrı enqueue edilir). */
