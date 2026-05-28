@@ -1,5 +1,20 @@
 # bireysel — Canlı Deploy Runbook (TAM SİTE MİGRASYONU)
 
+> ## ✅ DEPLOY TAMAMLANDI — 2026-05-27
+>
+> Site **canlıda yayında**: `https://bireysel.kaplanegitim.com/` · PHP 8.1 · tüm TR+EN sayfalar 200 · çoklu-eğitmen + favicon (Kaplan-2 Site Icon) + JSON-LD schema + tek-H1 doğrulandı · Permalinks 2× kaydedildi · 320 sipariş korundu (gap=0).
+> Migrasyon: AIOWPM `.wpress` (64MB sunucu limiti **Unlimited Extension fork** ile aşıldı).
+>
+> Bu dosya artık **arşiv runbook**. Lansman sonrası senkron kuralı: **kod → File Manager dosya yükle; içerik → canlıdan AIOWPM import.**
+>
+> **Prod'da kalan manuel iş:**
+> - [ ] iyzico **TEST siparişi** (tarayıcı + test kart — kritik, ödeme akışı doğrulanmadı)
+> - [ ] iyzico premium plugin güncelle (1.0.6 → son sürüm, iyzico panelinden indir)
+> - [ ] Cloudflare **Development Mode KAPAT** (tüm doğrulama bitince)
+> - [x] GA4 aktif ve veri akıyor (Search Console'da bireysel için de doğrulandı — 2026-05-28)
+> - [ ] Customizer → İletişim Bilgileri → "Form bildirim e-postası" = `bilgi@kaplanegitim.com` (şu an admin_email fallback'i, `cankaplan@gmail.com`'a düşüyor)
+> - [ ] Opsiyonel: `/en/` → `/en/home-en/` 301 (Polylang front-page quirk; çalışan home'a iniyor)
+
 Hedef: `bireysel.kaplanegitim.com` (Natro cPanel · LiteSpeed + Cloudflare).
 
 **Strateji (2026-05-27 kesinleşti): TAM SİTE MİGRASYONU.** Local DB = prod klonu + tüm bu oturumun işi (EN içerik, çoklu-eğitmen, içerik temizliği, ürün scrub, SEO/sosyal/GA4/site-icon ayarları, menü/slider, WC 10.8 + eklenti güncellemeleri). **GAP = 0** (kanıt: prod ve local'de sipariş birebir aynı — 320: 268 hazırlanıyor / 33 ödeme bekliyor / 19 iptal; en son sipariş #2679 22 May). Yani local'i prod'a yazmak **sıfır veri kaybı** demek.
