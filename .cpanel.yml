@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - /bin/mkdir -p $HOME/bireysel.kaplanegitim.com/wp-content/themes/bireysel
-    - /usr/bin/rsync -av --delete wp-content/themes/bireysel/ $HOME/bireysel.kaplanegitim.com/wp-content/themes/bireysel/
+    - /bin/cp -R wp-content/themes/bireysel/. $HOME/bireysel.kaplanegitim.com/wp-content/themes/bireysel/
