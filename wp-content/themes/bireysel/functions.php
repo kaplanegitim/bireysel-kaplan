@@ -172,6 +172,7 @@ $bireysel_includes = array(
 	'/inc/customizer.php',
 	'/inc/legacy-cleanup.php',
 	'/inc/polylang.php',
+	'/inc/anti-spam.php',
 );
 foreach ( $bireysel_includes as $file ) {
 	$path = BIREYSEL_DIR . $file;
