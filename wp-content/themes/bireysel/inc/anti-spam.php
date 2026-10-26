@@ -102,9 +102,9 @@ function bireysel_antispam_render_fields() {
 	<input type="hidden" name="bireysel_ts" value="<?php echo esc_attr( bireysel_antispam_token() ); ?>">
 	<?php
 }
-add_action( 'woocommerce_after_order_notes', 'bireysel_antispam_render_fields' );
-// Order notes alanı kapalıysa yedek konum:
-add_action( 'woocommerce_review_order_before_submit', 'bireysel_antispam_render_fields' );
+// #order_review dışında, tek kez: içerideki hook'lar (ör. review_order_before_submit) her
+// update_order_review AJAX'ında yeniden basılır ve zaman damgasını sıfırlar.
+add_action( 'woocommerce_checkout_before_order_review', 'bireysel_antispam_render_fields' );
 
 /* -------------------------------------------------------------------------
  * Rate-limit sayacı (transient)
@@ -135,10 +135,46 @@ function bireysel_antispam_turnstile_assets() {
 	}
 	wp_enqueue_script(
 		'cf-turnstile',
-		'https://challenges.cloudflare.com/turnstile/v0/api.js',
-		array(),
+		'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit',
+		array( 'jquery' ),
 		null,
 		true
+	);
+
+	// Widget, WC'nin update_order_review fragment'i içinde; WC bu fragment'i sayfa açılışında
+	// ve her alan değişiminde yeniden basar, otomatik render edilen widget DOM'dan silinir ve
+	// token gönderilmez. Bu yüzden her updated_checkout'ta elle render, checkout_error'da
+	// (token tek kullanımlık) reset.
+	wp_add_inline_script( 'cf-turnstile', <<<'JS'
+( function ( $ ) {
+	var widgets = [];
+
+	function render() {
+		if ( ! window.turnstile ) {
+			return;
+		}
+		widgets = widgets.filter( function ( w ) {
+			if ( document.body.contains( w.el ) ) {
+				return true;
+			}
+			try { turnstile.remove( w.id ); } catch ( e ) {}
+			return false;
+		} );
+		$( '.cf-turnstile' ).each( function () {
+			var el = this;
+			if ( widgets.some( function ( w ) { return w.el === el; } ) ) {
+				return;
+			}
+			widgets.push( { el: el, id: turnstile.render( el, { sitekey: el.dataset.sitekey, theme: 'auto' } ) } );
+		} );
+	}
+
+	$( document.body ).on( 'updated_checkout', render );
+	$( document.body ).on( 'checkout_error', function () {
+		widgets.forEach( function ( w ) { turnstile.reset( w.id ); } );
+	} );
+} )( jQuery );
+JS
 	);
 }
 add_action( 'wp_enqueue_scripts', 'bireysel_antispam_turnstile_assets' );
